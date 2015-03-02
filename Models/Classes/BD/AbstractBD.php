@@ -10,15 +10,17 @@ abstract class AbstractBD {
     
     protected $conection;
     
-    public function __construct() {
+    public function __construct(UConnection $connection) {
+        $this->conection=$connection;
         
     }
     
     
     
-    public abstract function add();
-    public abstract function select();
-    public abstract function deleted();
+    public abstract function add($sql);
+    public abstract function select($sql);
+    public abstract function deleted($sql);
+    public abstract function modify($sql);
     
     
     
