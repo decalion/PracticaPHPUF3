@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of AbstractBD
+ * Generic Abstract Class for make a CRUD
  *
  * @author Ismael
  */

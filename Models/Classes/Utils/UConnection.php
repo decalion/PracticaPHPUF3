@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of UConnection
+ * Class to Connect to DataBase
  *
  * @author Ismael
  */
@@ -27,17 +27,17 @@ class UConnection {
     }
     
 
-    function alliberarMemoria($consulta){
+    function free($consulta){
         $consulta->free();
     }
 
 
-    function consultar($sentenciSql) {
+    function query($sentenciSql) {
         return $this->conection->query($sentenciSql);
     }
 
 
-    function obtenirRegistres($consulta) {
+    function result($consulta) {
         return $consulta->fetch_array(MYSQLI_ASSOC);
     }
 
