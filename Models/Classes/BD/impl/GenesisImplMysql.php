@@ -1,18 +1,17 @@
 <?php
-use AbstractBD;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+require './Models/Classes/BD/AbstractBD.php';
+require './Models/Classes/BD/IGenesis.php';
 /**
  * Description of GenesisImplMysql
  *
  * @author Ismael
  */
 class GenesisImplMysql extends AbstractBD implements IGenesis{
+    
+    
+    public function __construct(UConnection $connection) {
+        parent::__construct($connection);
+    }
     
     /**
      * Add new data
@@ -60,6 +59,16 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
      */
     public function selectServers() {
         
+       $query = $this->conection->query("SELECT nameserver FROM Servidor");
+        $result = array();
+        while ($rst = $this->conection->result($query)) {
+
+            $name = $rst["nameserver"];  
+            array_push($result, $name);
+        }
+
+
+        return $result;
     }
 
 }
