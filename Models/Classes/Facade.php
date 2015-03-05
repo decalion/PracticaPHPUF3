@@ -14,6 +14,14 @@ class Facade {
         $db=new GenesisImplMysql($connection);
         return $db->selectServers();  
     }
+    
+    
+    public static function selectIpsFromGenesisDB(){
+        $connection=new UConnection(HOST,USER,PASS,DATABASE);
+        $db=new GenesisImplMysql($connection);
+        return $db->SelectIPS();  
+        
+    }
 }
 
 
