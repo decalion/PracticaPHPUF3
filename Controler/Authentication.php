@@ -59,6 +59,9 @@ if($_POST['user']==NULL){
     //If all correct go to next page
     if($check){
         
+        $_SESSION['user']=$user;
+        $_SESSION['pass']=$pass;
+        $_SESSION['server']=$ipLists[$ip];
         include './Views/SelectDB.php';
         
     }else{

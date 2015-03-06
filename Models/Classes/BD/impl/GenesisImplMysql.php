@@ -1,6 +1,4 @@
 <?php
-require './Models/Classes/BD/AbstractBD.php';
-require './Models/Classes/BD/IGenesis.php';
 /**
  * Description of GenesisImplMysql
  *
@@ -107,9 +105,9 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
         $this->conection->free($query);
         //$this->conection->closeConection();
 
-        return $result;
-        
+        return $result;        
     }
+    
 
 }
 ?>

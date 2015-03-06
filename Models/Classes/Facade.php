@@ -4,9 +4,6 @@
  *
  * @author Ismael
  */
-require './Models/Classes/BD/impl/GenesisImplMysql.php';
-require './Models/Classes/Utils/UConnection.php';
-
 class Facade {
     
     public static function selectServerFromGenesisDB(){
@@ -28,6 +25,21 @@ class Facade {
         $connection=new UConnection(HOST,USER,PASS,DATABASE);
         $db=new GenesisImplMysql($connection);
         return $db->SelectCredencials();
+        
+    }
+    
+    public static function genericShowDatabases(){
+        $connection=new UConnection(HOST,USER,PASS,DATABASE);
+        $db=new GenericDbImplMysql($connection);
+        return $db->showDatabases();
+        
+    }
+    
+    public static function genericShowTables(){
+        $connection=new UConnection($_SESSION['server'],$_SESSION['user'],$_SESSION['pass'],$_SESSION['db']);
+        $db=new GenericDbImplMysql($connection);
+        
+        return $db->showTables();
         
     }
     

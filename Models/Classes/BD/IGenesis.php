@@ -1,14 +1,10 @@
 <?php
 /**
- *
- * @author Ismael
- */
+*
+* @author Ismael
+*/
 interface IGenesis {
-    
-    
-    function selectServers();
-    function SelectCredencials();
-    function SelectIPS();
-    
+function selectServers();
+function SelectCredencials();
+function SelectIPS();
 }
-?>
