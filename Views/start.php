@@ -9,10 +9,12 @@
             
             <div>
                 <?php
-                    if(isset($_GET['errors'])){
+                    if(isset($_SESSION['errors'])){
                         //Errors::showErrors($_GET['errors']);
                         
-                        echo Errors::showErrors($_GET['errors']);
+                        echo $_SESSION['errors'];
+                        
+                        unset($_SESSION['errors']);
                     }
                 
                 ?>

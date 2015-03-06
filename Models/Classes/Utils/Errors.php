@@ -10,7 +10,6 @@ class Errors {
     
     private static $ERROR = array(
      "",
-     "El usuario no puede estar en Blanco",
      "El usuario es Incorrecto",
      "La Contrasenya es Incorrecta",
      "Este usuario no tiene permisos para acceder a este server"       
@@ -35,3 +34,4 @@ class Errors {
     
     
 }
+?>

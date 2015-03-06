@@ -5,8 +5,8 @@ const TITLE="EBD";
 
 //DataBase Config
 const HOST="localhost";
-const USER="ismael";
-const PASS="ismael";
+const USER="root";
+const PASS="";
 const DATABASE="genesis";
 
 
@@ -20,6 +20,7 @@ const STARTVIEW=100;
 
 
 //ERRORS
-const ERRORUSERNULL=1;
+const ERRORUSERNULL="El usuario no puede estar en Blanco";
 const USERNOTMATCH=2;
 
+?>

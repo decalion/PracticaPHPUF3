@@ -52,8 +52,15 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
      */
     public function SelectCredencials() {
         
-        $query = $this->conection->query("SELECT nuser,npass FROM Admin");
-        
+        $query = $this->conection->query("SELECT nuser,npass,ip FROM Admin");
+        $result = array();
+         while ($rst = $this->conection->result($query)) {
+
+             $temp=null;
+            $user = $rst["nuser"];  
+            //array_push($result, $name);
+        }
+
         
     }
 
@@ -70,7 +77,8 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
             array_push($result, $name);
         }
 
-
+        $this->conection->free($query);
+        //$this->conection->closeConection();
         return $result;
     }
     
@@ -89,9 +97,12 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
             array_push($result, $ip);
         }
 
+        $this->conection->free($query);
+        //$this->conection->closeConection();
 
         return $result;
         
     }
 
 }
+?>

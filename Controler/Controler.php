@@ -1,18 +1,26 @@
 <?php
 
-require './Models/Classes/Utils/GlobalConstant.php';
-require './Models/Classes/Facade.php';
-require './Models/Classes/Utils/Errors.php';
+require_once './Models/Classes/Utils/GlobalConstant.php';
+require_once './Models/Classes/Facade.php';
+require_once './Models/Classes/Utils/Errors.php';
+
+if(!isset($_SESSION['test'])){
+    session_start();
+    $_SESSION['test']="test";
+}
 
 
 if(isset($_GET['id'])){
     
     $getid=$_GET['id'];
-    $error=$_GET['errors'];
     
     switch ($getid){
         
-        case STARTVIEW: include './Views/start.php';;
+        case STARTVIEW: 
+            //$list=Facade::selectServerFromGenesisDB();
+            include './Views/start.php';
+            
+            break;
     }
     
 }
