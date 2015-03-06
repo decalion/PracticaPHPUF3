@@ -5,8 +5,8 @@ const TITLE="EBD";
 
 //DataBase Config
 const HOST="localhost";
-const USER="root";
-const PASS="";
+const USER="ismael";
+const PASS="ismael";
 const DATABASE="genesis";
 
 
@@ -21,6 +21,8 @@ const STARTVIEW=100;
 
 //ERRORS
 const ERRORUSERNULL="El usuario no puede estar en Blanco";
-const USERNOTMATCH=2;
+const ERRORUSERNOTMATCH="El usuario es Incorrecto";
+const ERRORPASS="La Contrasenya es Incorrecta";
+const ERRORPERMISION="Este usuario no tiene permisos para acceder a este server";
 
 ?>

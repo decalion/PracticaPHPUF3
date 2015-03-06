@@ -22,7 +22,7 @@
             <div>
             User <input type="text" name="user" /><br>
             Password <input type="password" name="pass" /><br>
-            Server Name <select size="1">
+            Server Name <select size="1" name="server">
                 <?php
                 foreach ($list as $index => $server){
                     
@@ -30,7 +30,7 @@
                 }
                 
                 ?>
-            </select><input type="text"  name="id"  value="111" /><br>
+            </select><input type="text"  name="id"  value="111" hidden /><br>
             <input type="submit" value="Login" />
         </form>
     </body>

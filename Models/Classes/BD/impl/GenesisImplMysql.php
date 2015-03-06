@@ -58,8 +58,15 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
 
              $temp=null;
             $user = $rst["nuser"];  
-            //array_push($result, $name);
+            $pass = $rst["npass"]; 
+            $ip = $rst["ip"]; 
+            $temp=array($user,$pass,$ip);
+            
+            array_push($result, $temp);
         }
+        
+        $this->conection->free($query);
+        return $result;
 
         
     }
@@ -93,7 +100,7 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
         $result = array();
         while ($rst = $this->conection->result($query)) {
 
-            $ìp = $rst["ip"];  
+            $ip=$rst["ip"];  
             array_push($result, $ip);
         }
 

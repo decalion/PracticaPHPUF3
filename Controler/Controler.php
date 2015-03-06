@@ -2,7 +2,6 @@
 
 require_once './Models/Classes/Utils/GlobalConstant.php';
 require_once './Models/Classes/Facade.php';
-require_once './Models/Classes/Utils/Errors.php';
 
 if(!isset($_SESSION['test'])){
     session_start();

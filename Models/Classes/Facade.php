@@ -22,6 +22,16 @@ class Facade {
         return $db->SelectIPS();  
         
     }
+    
+    
+    public static function selectAdminsFromGenesisDB(){
+        $connection=new UConnection(HOST,USER,PASS,DATABASE);
+        $db=new GenesisImplMysql($connection);
+        return $db->SelectCredencials();
+        
+    }
+    
+    
 }
 
 
