@@ -54,11 +54,11 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
         $result = array();
          while ($rst = $this->conection->result($query)) {
 
-             $temp=null;
+            $temp=null;
             $user = $rst["nuser"];  
             $pass = $rst["npass"]; 
             $ip = $rst["ip"]; 
-            $temp=array($user,$pass,$ip);
+            $temp=new Admin($user, $pass, $ip);
             
             array_push($result, $temp);
         }

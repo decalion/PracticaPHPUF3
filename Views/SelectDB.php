@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -14,7 +9,7 @@ and open the template in the editor.
         <form method="POST" action="index.php">
           Database List <select size="1" name="database">
                 <?php
-                $dblist=Facade::genericShowDatabases();
+                $dblist=$facade->genericShowDatabases();
                 foreach ($dblist as $index => $list){
                     echo"<option value='$list'>$list</option>";
                 }

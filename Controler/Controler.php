@@ -8,11 +8,14 @@ require_once './Models/Classes/BD/IGenesis.php';
 require_once './Models/Classes/BD/impl/GenericDbImplMysql.php';
 require_once './Models/Classes/BD/impl/GenesisImplMysql.php';
 require_once './Models/Classes/Utils/UConnection.php';
+require_once './Models/Classes/BD/DTO/Admin.php';
 
 if(!isset($_SESSION['test'])){
     session_start();
     $_SESSION['test']="test";
 }
+
+$facade=new Facade();
 
 
 if(isset($_GET['id'])){
@@ -21,8 +24,8 @@ if(isset($_GET['id'])){
     
     switch ($getid){
         
-        case STARTVIEW: 
-            //$list=Facade::selectServerFromGenesisDB();
+        case ERRORSTARTVIEW: 
+
             include './Views/start.php';
             
             break;
@@ -51,7 +54,7 @@ else if(isset($_POST['id'])){
     
 }else{
     
- $list=Facade::selectServerFromGenesisDB();
+ 
   include './Views/start.php';
 }
 

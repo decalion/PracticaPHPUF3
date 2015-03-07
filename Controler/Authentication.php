@@ -9,15 +9,17 @@ if($_POST['user']==NULL){
    
     
     $_SESSION['errors']=ERRORUSERNULL;
-    header("Location:./index.php"); 
+    $_GET['id']=ERRORSTARTVIEW;
+   // header("Location:./index.php"); 
+    include './index.php';
     
    /*Con include da Error
    include './index.php';*/
 
 }else{
     
-    $credencials=Facade::selectAdminsFromGenesisDB();
-    $ipLists=Facade::selectIpsFromGenesisDB();
+    $credencials=$facade->selectAdminsFromGenesisDB();
+    $ipLists=$facade->selectIpsFromGenesisDB();
     
     $user=$_POST['user'];
     $pass=$_POST['pass'];
@@ -31,11 +33,11 @@ if($_POST['user']==NULL){
     foreach ($credencials as $identified){
         //print_r($identified);
         
-        if($identified[0]==$user){
+        if($identified->getUser()===$user){
             
-            if($identified[1]==$pass){
+            if($identified->getPass()==$pass){
                 
-                 if($identified[2]==$ipLists[$ip]){
+                 if($identified->getIp()===$ipLists[$ip]){
                      $check=true;
                      
                  }else{

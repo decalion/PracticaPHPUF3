@@ -24,6 +24,7 @@
             Password <input type="password" name="pass" /><br>
             Server Name <select size="1" name="server">
                 <?php
+                $list=$facade->selectServerFromGenesisDB();
                 foreach ($list as $index => $server){
                     
                     echo"<option value='$index'>$server</option>";

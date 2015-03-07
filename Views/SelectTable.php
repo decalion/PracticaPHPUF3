@@ -6,14 +6,27 @@
     </head>
     <body>
         <form method="POST" action="index.php">
-          Table List <select size="1" name="database">
+            <h1> Table List </h1>
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>Select </td>
+                        <td>Add</td>
+                        <td>Delete</td>
+                    </tr>
                 <?php
-                $tblist=Facade::genericShowTables();
+                $tblist=$facade->genericShowTables();
                 foreach ($tblist as $index => $list){
-                    echo"<option value='$list'>$list</option>";
+                    echo"<tr>";
+                    echo"<td>$list</td>";
+                    echo"<td><button>Select</button></td>";
+                    echo"<td><button>Add</button></td>";
+                    echo"<td><button>Deleted</button></td>";
+                    echo "</tr>";
                 }
                 ?>
-          </select><input type="text"  name="id"  value="101" hidden /><br>
+                </table>
+          <input type="text"  name="id"  value="101" hidden /><br>
           <input type="submit" value="Select" />
         </form>
     </body>
