@@ -13,8 +13,7 @@ if($_POST['user']==NULL){
    // header("Location:./index.php"); 
     include './index.php';
     
-   /*Con include da Error
-   include './index.php';*/
+
 
 }else{
     
@@ -70,7 +69,10 @@ if($_POST['user']==NULL){
         
        
        $_SESSION['errors']=$error;
-       header("Location:./index.php"); 
+       $_GET['id']=ERRORSTARTVIEW;
+       include './index.php';
+       
+      // header("Location:./index.php"); 
         
     }
     

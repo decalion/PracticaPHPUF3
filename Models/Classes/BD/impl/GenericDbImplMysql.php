@@ -65,4 +65,10 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         
     }
 
+    public function close() {
+        
+        $this->conection->closeConection();
+        
+    }
+
 }

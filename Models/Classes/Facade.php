@@ -13,14 +13,18 @@ class Facade {
     public  function selectServerFromGenesisDB(){
         $connection=new UConnection(HOST,USER,PASS,DATABASE);
         $db=new GenesisImplMysql($connection);
-        return $db->selectServers();  
+        $result=$db->selectServers();  
+        $db->close();
+        return $result;
     }
     
     
     public  function selectIpsFromGenesisDB(){
         $connection=new UConnection(HOST,USER,PASS,DATABASE);
         $db=new GenesisImplMysql($connection);
-        return $db->SelectIPS();  
+        $result=$db->SelectIPS();  
+        $db->close();
+        return $result;
         
     }
     
@@ -28,21 +32,27 @@ class Facade {
     public function selectAdminsFromGenesisDB(){
         $connection=new UConnection(HOST,USER,PASS,DATABASE);
         $db=new GenesisImplMysql($connection);
-        return $db->SelectCredencials();
+        $result=$db->SelectCredencials();
+        $db->close();
+        return $result;
         
     }
     
     public function genericShowDatabases(){
         $connection=new UConnection(HOST,USER,PASS,DATABASE);
         $db=new GenericDbImplMysql($connection);
-        return $db->showDatabases();
+        $result=$db->showDatabases();
+        $db->close();
+        return $result;
         
     }
     
     public function genericShowTables(){
         $connection=new UConnection($_SESSION['server'],$_SESSION['user'],$_SESSION['pass'],$_SESSION['db']);
         $db=new GenericDbImplMysql($connection);
-        return $db->showTables();
+        $result=$db->showTables();
+        $db->close();
+        return $result;
         
     }
     

@@ -5,17 +5,26 @@
         <title><?php echo TITLE; ?></title>
     </head>
     <body>
-        Select a Database<br>
-        <form method="POST" action="index.php">
-          Database List <select size="1" name="database">
+        <h1>Database List</h1>
+            <table border="2">
+                <tr>
+                    <td>Database List</td>
+                    <td>Select</td>
+                    <td>Deleted</td>
+                </tr>
                 <?php
                 $dblist=$facade->genericShowDatabases();
+                //print_r($dblist);
                 foreach ($dblist as $index => $list){
-                    echo"<option value='$list'>$list</option>";
+                    echo "<tr>";
+                    echo "<td> $list </td>";
+                    echo "<td><a href='index.php?id=".SELECTDATABASE."&action=$index'><button>Select</button></a></td>";
+                    echo "<td><a href='Borrar.php'><button>Deleted</button></a></td>";
+                    echo "<td><a href='Borrar.php'><button>Copy</button></a></td>";
+                    echo "</tr>";
                 }
                 ?>
-          </select><input type="text"  name="id"  value="101" hidden /><br>
-          <input type="submit" value="Select" />
-        </form>
+            </table>
+        <br><a href='Borrar.php'><button>Create Database</button></a></td>
     </body>
 </html>

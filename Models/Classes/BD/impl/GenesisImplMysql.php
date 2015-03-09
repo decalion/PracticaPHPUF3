@@ -107,7 +107,10 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
 
         return $result;        
     }
-    
+
+    public function close() {
+        $this->conection->closeConection();
+    }
 
 }
 ?>

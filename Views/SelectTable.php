@@ -5,9 +5,8 @@
         <title><?php echo TITLE; ?></title>
     </head>
     <body>
-        <form method="POST" action="index.php">
-            <h1> Table List </h1>
-                <table>
+        <h1> Table List </h1>
+                <table border="2">
                     <tr>
                         <td>Name</td>
                         <td>Select </td>
@@ -19,15 +18,13 @@
                 foreach ($tblist as $index => $list){
                     echo"<tr>";
                     echo"<td>$list</td>";
-                    echo"<td><button>Select</button></td>";
-                    echo"<td><button>Add</button></td>";
-                    echo"<td><button>Deleted</button></td>";
+                    echo"<td><a href='Borrar.php'><button>Select</button></a></td>";
+                    echo"<td><a href='Borrar.php'><button>Add</button></a></td>";
+                    echo"<td><a href='Borrar.php'><button>Deleted</button></a></td>";
                     echo "</tr>";
                 }
                 ?>
                 </table>
-          <input type="text"  name="id"  value="101" hidden /><br>
-          <input type="submit" value="Select" />
-        </form>
+        <br><a href='Borrar.php'><button>Create Table</button></a></td>
     </body>
 </html>

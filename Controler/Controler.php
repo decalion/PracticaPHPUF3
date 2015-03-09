@@ -29,6 +29,15 @@ if(isset($_GET['id'])){
             include './Views/start.php';
             
             break;
+        case SELECTDATABASE:
+            $position=$_GET['action'];
+            $dblist=$facade->genericShowDatabases();
+            $_SESSION['db']=$dblist[$position];
+           include'./Views/SelectTable.php';
+            break;
+        
+            
+            
     }
     
 }

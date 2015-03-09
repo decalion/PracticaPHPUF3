@@ -21,6 +21,7 @@ abstract class AbstractBD {
     public abstract function select($sql);
     public abstract function deleted($sql);
     public abstract function modify($sql);
+    public abstract function close();
     
     
     
