@@ -5,8 +5,8 @@ const TITLE="EBD";
 
 //DataBase Config
 const HOST="localhost";
-const USER="root";
-const PASS="root";
+const USER="ismael";
+const PASS="ismael";
 const DATABASE="genesis";
 
 
@@ -20,6 +20,7 @@ const SELECTDATABASE=112;
 //VIEW IDENTIFI
 const ERRORSTARTVIEW=100;
 const SELECTDB=101;
+const SELECTABLE=102;
 
 
 

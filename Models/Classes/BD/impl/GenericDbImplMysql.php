@@ -22,7 +22,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
     public function select() {
         $query=$this->conection->query("SELECT * FROM ".$_SESSION['table']);
         
-        $descripcion=$this->getDescribe();
+        $descripcion=$this->getDescribeField();
         $ncamp=count($descripcion);
         
         $result=array();
@@ -33,13 +33,15 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
              $temp=array();
             for($i=0;$i<$ncamp;$i++){
                 
-                $rst[$descripcion[$i]];
-                array_push($temp, $rst);
+                $temp[$i]=$rst[$descripcion[$i]];
+               /* $rst[$descripcion[$i]];
+                array_push($temp,$rst);*/
             }
             array_push($result, $temp);
             
-            return $result;
+           
         }
+         return $result;
  
         
         
@@ -97,7 +99,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
     
     
     
-    private function getDescribe(){
+    private function getDescribeField(){
        $query=$this->conection->query("DESCRIBE ".$_SESSION['table']);
         
         $result = array();

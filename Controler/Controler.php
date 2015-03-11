@@ -35,6 +35,16 @@ if(isset($_GET['id'])){
             $_SESSION['db']=$dblist[$position];
            include'./Views/SelectTable.php';
             break;
+        case SELECTABLE:
+            $p=$_GET['action'];
+            $tbl=$facade->genericShowTables();
+            $_SESSION['table']=$tbl[$p];
+           include './Views/SelectCamps.php';
+            
+          /* print_r($position);
+            print_r($tbl);
+            echo$_SESSION['table'];*/
+            break;
         
             
             

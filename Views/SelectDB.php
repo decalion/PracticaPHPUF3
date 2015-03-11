@@ -11,6 +11,7 @@
                     <td>Database List</td>
                     <td>Select</td>
                     <td>Deleted</td>
+                    <td>Backup</td>
                 </tr>
                 <?php
                 $dblist=$facade->genericShowDatabases();
@@ -20,7 +21,7 @@
                     echo "<td> $list </td>";
                     echo "<td><a href='index.php?id=".SELECTDATABASE."&action=$index'><button>Select</button></a></td>";
                     echo "<td><a href='Borrar.php'><button>Deleted</button></a></td>";
-                    echo "<td><a href='Borrar.php'><button>Copy</button></a></td>";
+                    echo "<td><a href='Borrar.php'><button>Backup</button></a></td>";
                     echo "</tr>";
                 }
                 ?>
