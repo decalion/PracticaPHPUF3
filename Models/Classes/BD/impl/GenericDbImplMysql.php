@@ -8,6 +8,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
     
     public function add($sql) {
         
+        
     }
 
     public function deleted($sql) {
@@ -18,7 +19,29 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         
     }
 
-    public function select($sql) {
+    public function select() {
+        $query=$this->conection->query("SELECT * FROM ".$_SESSION['table']);
+        
+        $descripcion=$this->getDescribe();
+        $ncamp=count($descripcion);
+        
+        $result=array();
+        
+        array_push($result,$descripcion);
+        
+         while ($rst = $this->conection->result($query)) {
+             $temp=array();
+            for($i=0;$i<$ncamp;$i++){
+                
+                $rst[$descripcion[$i]];
+                array_push($temp, $rst);
+            }
+            array_push($result, $temp);
+            
+            return $result;
+        }
+ 
+        
         
     }
     
@@ -45,7 +68,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
     
     /**
      * Show Tables For all DataBses
-     * @return table List
+     * @return table Listde
      */
     public function showTables(){
         $query = $this->conection->query("show tables");
@@ -69,6 +92,21 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         
         $this->conection->closeConection();
         
+    }
+    
+    
+    
+    
+    private function getDescribe(){
+       $query=$this->conection->query("DESCRIBE ".$_SESSION['table']);
+        
+        $result = array();
+        while ($rst = $this->conection->result($query)) {
+            $tbl=$rst['Field'];
+            array_push($result, $tbl);
+        }
+        
+        return $result;
     }
 
 }

@@ -29,3 +29,4 @@ INSERT INTO Servidor VALUES("258.34.12.34","pepito.server.com");
 INSERT INTO Servidor VALUES("370.78.22.56","cristian.server.es");
 
 INSERT INTO Admin VALUES(NULL,"ismael","ismael","127.0.0.1");
+INSERT INTO Admin VALUES(NULL,"ivan","ivan","127.0.0.1");

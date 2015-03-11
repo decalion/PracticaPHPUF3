@@ -56,6 +56,15 @@ class Facade {
         
     }
     
+    public function genericSelect(){
+        $connection=new UConnection($_SESSION['server'],$_SESSION['user'],$_SESSION['pass'],$_SESSION['db']);
+        $db=new GenericDbImplMysql($connection);
+        $result=$db->select($sql);
+        $db->close();
+        return $result;
+        
+    }
+    
     
 }
 

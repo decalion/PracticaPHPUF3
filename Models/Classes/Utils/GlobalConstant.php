@@ -5,8 +5,8 @@ const TITLE="EBD";
 
 //DataBase Config
 const HOST="localhost";
-const USER="ismael";
-const PASS="ismael";
+const USER="root";
+const PASS="root";
 const DATABASE="genesis";
 
 

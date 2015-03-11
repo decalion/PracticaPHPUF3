@@ -41,7 +41,7 @@ class GenesisImplMysql extends AbstractBD implements IGenesis{
      * Generic query
      * @param type $sql
      */
-    public function select($sql) {
+    public function select() {
         //need impl
     }
 
