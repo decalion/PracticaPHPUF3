@@ -66,6 +66,13 @@ class Facade {
     }
     
     
+    public function createGenericDirectori(){
+        $directori= new Directoris("./backups/".$_SESSION["db"], 777);
+        
+        return $directori;
+    }
+    
+    
 }
 
 

@@ -14,6 +14,7 @@ const DATABASE="genesis";
 //Identifi ID
 const AUTHENTICATION=111;
 const SELECTDATABASE=112;
+const BACKUPSVIEW=235;
 
         
 

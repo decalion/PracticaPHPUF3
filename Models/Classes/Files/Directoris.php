@@ -56,8 +56,8 @@ class Directoris {
 		//readir accedeix al contingut per ordre d'emmagatzematge del sistema de fitxers
         while (!(($contingut = readdir($this->dirObert)) === false)) {
 		//Si és un directori
-            if (is_dir("$nomDir/$contingut")) {
-                echo "(D) "; //Indiquem que és un directori
+            if (is_dir("$contingut")) {
+               // echo "(D) "; //Indiquem que és un directori
             }
 			//Mostrem contingut actual
             echo $contingut . "<br/>";
