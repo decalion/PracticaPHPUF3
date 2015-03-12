@@ -14,6 +14,7 @@ require_once './Models/Classes/Files/File.php';
 
 
 
+//Check if session start
 if(!isset($_SESSION['test'])){
     session_start();
     $_SESSION['test']="test";
@@ -48,7 +49,13 @@ if(isset($_GET['id'])){
             $dblist=$facade->genericShowDatabases();
             $_SESSION['db']=$dblist[$position];
             include './Views/backupstart.php';
-            break;      
+            break;
+        case CREATEBACKUP:
+            
+            
+            include './Views/createBackup.php';
+            
+            break;
             
     }
     

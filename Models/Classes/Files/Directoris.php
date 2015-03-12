@@ -63,6 +63,36 @@ class Directoris {
             echo $contingut . "<br/>";
         }
     }
+    
+    /**
+     * List of Files in the Directori
+     * @return array
+     */
+    public function getDirectoriData(){
+        
+        $result=array();
+        
+          while (!(($contingut = readdir($this->dirObert)) === false)) {
+		//Si és un directori
+           /* if (is_dir("$contingut")) {
+               // echo "(D) ";
+            }*/
+              
+              if(($contingut==".")||($contingut=="..")){
+                  
+              }else{
+                  array_push($result,$contingut);
+              }
+			//Mostrem contingut actual
+            
+        }
+        
+        return $result;
+        
+    }
+    
+    
+    
 
 	//Afegim un fitxer al directori
     function afegirContingut($contingut) {
