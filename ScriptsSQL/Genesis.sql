@@ -4,24 +4,24 @@
  * @author Ismael
  */
 
-CREATE DATABASE Genesis;
+CREATE DATABASE genesis;
 
-USE Genesis;
+USE genesis;
 
 
-CREATE TABLE Servidor (
+CREATE TABLE servidor (
     ip VARCHAR(18) PRIMARY KEY,
     nameserver VARCHAR(25) NOT NULL
 )  ENGINE=InnoDB;
 
 
-CREATE TABLE Admin (
+CREATE TABLE admin (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     nuser VARCHAR(25) NOT NULL,
     npass VARCHAR(10),
     ip VARCHAR(18) NOT NULL,
     FOREIGN KEY (ip)
-        REFERENCES Servidor (ip)
+        REFERENCES servidor (ip)
 )ENGINE=InnoDB;
 
 INSERT INTO Servidor VALUES("127.0.0.1","localhost");
