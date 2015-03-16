@@ -74,6 +74,13 @@ class Facade {
     }
     
     
+    public function GenericDescribeTables(){
+        $connection=new UConnection($_SESSION['server'],$_SESSION['user'],$_SESSION['pass'],$_SESSION['db']);
+        $db=new GenericDbImplMysql($connection);
+        $result=$db->showCreateTables();
+        return $result;  
+    }
+    
 }
 
 

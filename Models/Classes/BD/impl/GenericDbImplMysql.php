@@ -89,6 +89,34 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         
         
     }
+    
+    
+    public function showCreateTables(){
+        
+        
+        $tableList=$this->showTables();
+        $n=count($tableList);
+        $result = array();
+        
+        for($i=0;$i<$n;$i++){
+            
+            $query = $this->conection->query("SHOW CREATE TABLE ".$tableList[$i]);
+            
+           while ($rst = $this->conection->result($query)) {
+           
+                array_push($result, $rst);
+             }
+   
+            
+        }
+        
+
+
+        return $result;
+        
+        
+        
+    }
 
     public function close() {
         
