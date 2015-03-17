@@ -15,3 +15,7 @@ CREATE TABLE `servidor` (
   `nameserver` varchar(25) NOT NULL,
   PRIMARY KEY (`ip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO ('id','nuser','npass','ip') VALUES('1','ismael','ismael','127.0.0.1');
+INSERT INTO ('ip','nameserver') VALUES('127.0.0.1','localhost');
+INSERT INTO ('ip','nameserver') VALUES('258.34.12.34','pepito.server.com');
+INSERT INTO ('ip','nameserver') VALUES('370.78.22.56','cristian.server.es');

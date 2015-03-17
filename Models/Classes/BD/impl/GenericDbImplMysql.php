@@ -5,9 +5,8 @@
  * @author Ismael
  */
 class GenericDbImplMysql extends AbstractBD implements IGenericDb {
-    
+
     public function add($sql) {
-        
         
     }
 
@@ -20,43 +19,66 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
     }
 
     public function select() {
-        $query=$this->conection->query("SELECT * FROM ".$_SESSION['table']);
-        
-        $descripcion=$this->getDescribeField();
-        $ncamp=count($descripcion);
-        
-        $result=array();
-        
-        array_push($result,$descripcion);
-        
-         while ($rst = $this->conection->result($query)) {
-             $temp=array();
-            for($i=0;$i<$ncamp;$i++){
-                
-                $temp[$i]=$rst[$descripcion[$i]];
-               /* $rst[$descripcion[$i]];
-                array_push($temp,$rst);*/
+        $query = $this->conection->query("SELECT * FROM " . $_SESSION['table']);
+
+        $descripcion = $this->getDescribeField($_SESSION['table']);
+        $ncamp = count($descripcion);
+
+        $result = array();
+
+        array_push($result, $descripcion);
+
+        while ($rst = $this->conection->result($query)) {
+            $temp = array();
+            for ($i = 0; $i < $ncamp; $i++) {
+
+                $temp[$i] = $rst[$descripcion[$i]];
+                /* $rst[$descripcion[$i]];
+                  array_push($temp,$rst); */
             }
             array_push($result, $temp);
-            
-           
         }
-         return $result;
- 
-        
+        return $result;
+    }
+    
+    
+    
+    public function selectTableData($data){
+       $query = $this->conection->query("SELECT * FROM " . $data);
+
+        $descripcion = $this->getDescribeField($data);
+        $ncamp = count($descripcion);
+
+        $result = array();
+
+        array_push($result, $descripcion);
+
+        while ($rst = $this->conection->result($query)) {
+            $temp = array();
+            for ($i = 0; $i < $ncamp; $i++) {
+
+                $temp[$i] = $rst[$descripcion[$i]];
+                /* $rst[$descripcion[$i]];
+                  array_push($temp,$rst); */
+            }
+            array_push($result, $temp);
+        }
+        return $result;
         
     }
     
     
-        /**
+    
+
+    /**
      * Select all database
      * @return databaseList
      */
-    public function showDatabases(){
-         $query = $this->conection->query("show databases");
+    public function showDatabases() {
+        $query = $this->conection->query("show databases");
         $result = array();
         while ($rst = $this->conection->result($query)) {
-            $db=$rst['Database'];
+            $db = $rst['Database'];
             array_push($result, $db);
         }
 
@@ -64,20 +86,18 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         //$this->conection->closeConection();
 
         return $result;
-        
     }
 
-    
     /**
      * Show Tables For all DataBses
      * @return table Listde
      */
-    public function showTables(){
+    public function showTables() {
         $query = $this->conection->query("show tables");
-        $tblname="Tables_in_".$_SESSION['db'];
+        $tblname = "Tables_in_" . $_SESSION['db'];
         $result = array();
         while ($rst = $this->conection->result($query)) {
-            $tbl=$rst[$tblname];
+            $tbl = $rst[$tblname];
             array_push($result, $tbl);
         }
 
@@ -85,57 +105,44 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         //$this->conection->closeConection();
 
         return $result;
-        
-        
-        
     }
-    
-    
-    public function showCreateTables(){
-        
-        
-        $tableList=$this->showTables();
-        $n=count($tableList);
+
+    public function showCreateTables() {
+
+
+        $tableList = $this->showTables();
+        $n = count($tableList);
         $result = array();
-        
-        for($i=0;$i<$n;$i++){
-            
-            $query = $this->conection->query("SHOW CREATE TABLE ".$tableList[$i]);
-            
-           while ($rst = $this->conection->result($query)) {
-           
+
+        for ($i = 0; $i < $n; $i++) {
+
+            $query = $this->conection->query("SHOW CREATE TABLE " . $tableList[$i]);
+
+            while ($rst = $this->conection->result($query)) {
+
                 array_push($result, $rst);
-             }
-   
-            
+            }
         }
-        
+
 
 
         return $result;
-        
-        
-        
     }
 
     public function close() {
-        
+
         $this->conection->closeConection();
-        
     }
-    
-    
-    
-    
-    private function getDescribeField(){
-       $query=$this->conection->query("DESCRIBE ".$_SESSION['table']);
-        
+
+    private function getDescribeField($table) {
+        $query = $this->conection->query("DESCRIBE " . $table);
+
         $result = array();
         while ($rst = $this->conection->result($query)) {
-            $tbl=$rst['Field'];
+            $tbl = $rst['Field'];
             array_push($result, $tbl);
         }
-        
+
         return $result;
     }
 
