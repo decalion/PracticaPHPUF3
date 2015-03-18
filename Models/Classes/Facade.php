@@ -77,4 +77,15 @@ class Facade {
         return $result;
     }
 
+    
+    public function restoreBackup($sql){
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
+        $db = new GenericDbImplMysql($connection);
+        $result=$db->add($sql);
+        
+        return $result;
+        
+        
+        
+    }
 }

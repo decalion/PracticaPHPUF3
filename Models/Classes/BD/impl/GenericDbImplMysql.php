@@ -8,6 +8,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
 
     public function add($sql) {
         
+        $this->conection->query($sql);
     }
 
     public function deleted($sql) {

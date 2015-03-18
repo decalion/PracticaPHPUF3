@@ -14,8 +14,8 @@ CREATE TABLE `usuaris` (
   `dataAlta` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-INSERT INTO ('codiPostal','nomPoblacio') VALUES('08226','TERRASSA');
-INSERT INTO ('id','nom','cognom','edat','dataAlta') VALUES('3','María','Espinar','11','2007-08-19');
-INSERT INTO ('id','nom','cognom','edat','dataAlta') VALUES('4','Lluís','Espinar','9','2007-06-11');
-INSERT INTO ('id','nom','cognom','edat','dataAlta') VALUES('5','Anna','Alonso','13','2006-03-03');
-INSERT INTO ('id','nom','cognom','edat','dataAlta') VALUES('6','Joan','Alonso','10','2006-03-03');
+INSERT INTO poblacions (codiPostal,nomPoblacio) VALUES('08226','TERRASSA');
+INSERT INTO usuaris (id,nom,cognom,edat,dataAlta) VALUES('3','Mar?a','Espinar','11','2007-08-19');
+INSERT INTO usuaris (id,nom,cognom,edat,dataAlta) VALUES('4','Llu?s','Espinar','9','2007-06-11');
+INSERT INTO usuaris (id,nom,cognom,edat,dataAlta) VALUES('5','Anna','Alonso','13','2006-03-03');
+INSERT INTO usuaris (id,nom,cognom,edat,dataAlta) VALUES('6','Joan','Alonso','10','2006-03-03');

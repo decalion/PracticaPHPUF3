@@ -41,7 +41,7 @@ class File {
 			touch($this->fitxer)or die("El fitxer no s'ha creat."); 
 			echo "<p>El fitxer s'ha creat amb exit</p>";
         } else { //Si el fitxer existeix...
-            echo "<p>El fitxer ja existeix</p>";
+           // echo "<p>El fitxer ja existeix</p>";
         }
     }
 
@@ -76,6 +76,20 @@ class File {
             //Mostrem linia llegida
             echo $linia . "<br/>";
         }
+    }
+    
+    
+    public function getScript(){
+        $test="";
+        while (!feof($this->fitxerObert)) {
+
+            $linia = fgets($this->fitxerObert, 1024);
+            
+            $test.=$linia;
+            //echo $linia . "<br/>";
+        }
+        
+        return $test;
     }
 
     //Métode que llegeix la meitad del contingut del fitxer i els mostra

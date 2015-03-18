@@ -48,16 +48,16 @@
         for ($l = 0; $l < $ntables; $l++) {
             $select = $facade->genericSelectTableData($table[$l]);
             $i = 0;
-            $insert = "INSERT INTO (";
+            $insert = "INSERT INTO ". $table[$l]." (";
             $nt = count($select[0]);
             foreach ($select[0] as $camp) {
                 $i++;
 
                 if ($i == $nt) {
 
-                    $insert.="'$camp')";
+                    $insert.="$camp)";
                 } else {
-                    $insert.="'$camp',";
+                    $insert.="$camp,";
                 }
             }
 

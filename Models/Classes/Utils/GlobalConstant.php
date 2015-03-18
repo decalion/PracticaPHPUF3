@@ -15,6 +15,9 @@ const DATABASE="genesis";
 const AUTHENTICATION=111;
 const SELECTDATABASE=112;
 const BACKUPSVIEW=235;
+const RESTOREBACKUP=125;
+const RESTORE=654;
+const NORESTORE=999;
 
         
 

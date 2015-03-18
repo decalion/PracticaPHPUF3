@@ -10,8 +10,14 @@ class UConnection {
 
 
     function __construct($host, $user, $pass, $dataBase) {
+        
+        if($dataBase==null){
+            $this->conection = new mysqli($host, $user, $pass);
+            
+        }else{
 
         $this->conection = new mysqli($host, $user, $pass, $dataBase);
+        }
 
 
         if ($this->conection->connect_errno) {
