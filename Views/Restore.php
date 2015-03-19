@@ -21,14 +21,15 @@
         // echo"<br><br>";
         $delimitador = ";";
         $resultat = strtok($sql, $delimitador);
+        $i=0;
         while (is_string($resultat)) {
             if ($resultat) {
 
                
                 $resultat.=";";
-                trim($resultat);
+                //trim($resultat);
                 echo"$resultat<br>";
-                $rst = $facade->restoreBackup($resultat);
+                $rst = $facade->restoreBackup($resultat,$i);
 
                 if ($rst) {
                     array_push($arrayResult, "OK");
@@ -36,13 +37,14 @@
                     array_push($arrayResult, "ERROR");
                 }
             }
+            $i++;
             $resultat = strtok($delimitador);
         }
 
 
         echo"<br><br>";
 
-        //print_r($arrayResult);
+       // print_r($arrayResult);
 
 
         echo"<h3> BACKUP DONE! </h3>";

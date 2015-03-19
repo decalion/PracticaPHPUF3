@@ -16,17 +16,28 @@
                 echo "No hay copias de Seguridad de esta Base de datos";
             } else {
 
-                echo "<input type='text' name='id' value=".RESTOREBACKUP." hidden/>";
-                echo"<select size='5' name='backup'>";
+                echo"<table border='2'>";
+                echo"<tr>";
+                echo"<td> File </td>";
+                echo"<td> Restore </td>";
+                echo"<td> Deleled</td>";
+                echo"</tr>";
                 foreach ($dir as $index => $data) {
-
-                    echo"<option value='$data'>$data</option>";
+                    echo"<tr>";
+                    
+                    echo"<td>$data</td>";
+                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Restaurar\" onClick=location.href=\"./index.php?id=".CONFRESTOREBP."&action=$index\"></td>";
+                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Deleted\" onClick=location.href=\"./index.php?id=".CONFDELBACKUP."&action=$index\"></td>";
+                    //echo"<td> <a href='index.php?id=".BACK."'><button>volver</button></a> </td>";
+                   // echo"<td> <a href='index.php?id=".CONFDELBACKUP."&action='$index'><button>Deleted Backup</button></a> </td>";
+            
+                    echo"</tr>";
                 }
-
-                echo"</select>";
                 
-                echo "<br><input type='submit' value='Restore'/>";
+                
+                echo"</table>";
             }
+                
             ?>
             
         </form>
@@ -34,7 +45,6 @@
         
         <?php
         echo "<a href='index.php?id=".CREATEBACKUP."'><button>Create Backup</button></a>";
-        echo "<a href='index.php?id=".DELETEDBACKUP."'><button>Create Backup</button></a>";
         echo "<a href='index.php?id=".BACK."'><button>volver</button></a>";
        /* echo "effjñaf´ñkfp´kfq";
         $dir=$facade->createGenericDirectori();

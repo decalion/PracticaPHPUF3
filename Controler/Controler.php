@@ -23,46 +23,60 @@ if(!isset($_SESSION['test'])){
 $facade=new Facade();
 
 
-if(isset($_GET['id'])){
-    
-    $getid=$_GET['id'];
-    
-    switch ($getid){
+if (isset($_GET['id'])) {
+
+    $getid = $_GET['id'];
+
+    switch ($getid) {
         
-        case ERRORSTARTVIEW: 
+        case CONFRESTOREBP:
+            
+            $restore_file=$_GET['action'];
+            
+            include './Views/ConfirmRestore.php';
+            break;
+
+        case ERRORSTARTVIEW:
             include './Views/start.php';
             break;
+        
         case SELECTDATABASE:
-            $position=$_GET['action'];
-            $dblist=$facade->genericShowDatabases();
-            $_SESSION['db']=$dblist[$position];
+            $position = $_GET['action'];
+            $dblist = $facade->genericShowDatabases();
+            $_SESSION['db'] = $dblist[$position];
             include'./Views/SelectTable.php';
             break;
+        
         case SELECTABLE:
-            $p=$_GET['action'];
-            $tbl=$facade->genericShowTables();
-            $_SESSION['table']=$tbl[$p];
+            $p = $_GET['action'];
+            $tbl = $facade->genericShowTables();
+            $_SESSION['table'] = $tbl[$p];
             include './Views/SelectCamps.php';
             break;
+        
         case BACKUPSVIEW:
-            $position=$_GET['action'];
-            $dblist=$facade->genericShowDatabases();
-            $_SESSION['db']=$dblist[$position];
+            $position = $_GET['action'];
+            $dblist = $facade->genericShowDatabases();
+            $_SESSION['db'] = $dblist[$position];
             include './Views/backupstart.php';
             break;
+        
         case CREATEBACKUP:
             include './Views/createBackup.php';
             break;
+        
         case RESTORE:
             include './Views/Restore.php';
             break;
+        
         case NORESTORE:
             include './Views/SelectDB.php';
             break;
+        
         case BACK:
             include './Views/SelectDB.php';
             break;
-            
+        
     }
     
 }
@@ -75,18 +89,7 @@ else if(isset($_POST['id'])){
         case AUTHENTICATION:   
             include './Controler/Authentication.php';
             break;
-        case RESTOREBACKUP:
-            if(isset($_POST['backup'])){
-                
-                $restore_file=$_POST['backup'];
-               
-            }else{
-                
-                 $restore_file=null;
-            }
-            
-            include './Views/ConfirmRestore.php';
-            break;
+
         
         default: include './Views/start.php'; break;
     }

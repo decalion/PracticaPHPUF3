@@ -78,8 +78,13 @@ class Facade {
     }
 
     
-    public function restoreBackup($sql){
-        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
+    public function restoreBackup($sql,$id){
+        if($id<3){
+            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
+        }else{
+            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],$_SESSION['db']);
+        }
+        //$connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
         $db = new GenericDbImplMysql($connection);
         $result=$db->add($sql);
         
