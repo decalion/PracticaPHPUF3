@@ -59,6 +59,9 @@ if(isset($_GET['id'])){
         case NORESTORE:
             include './Views/SelectDB.php';
             break;
+        case BACK:
+            include './Views/SelectDB.php';
+            break;
             
     }
     

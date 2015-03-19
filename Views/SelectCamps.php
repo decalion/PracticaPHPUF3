@@ -14,6 +14,7 @@ and open the template in the editor.
         <table border="2">
         <?php
       $camps=$facade->genericSelect();
+      $i=0;
         foreach($camps as $camp){
             
             echo "<tr>";
@@ -21,10 +22,22 @@ and open the template in the editor.
                 
                 echo"<td>$tbl</td>";
             }
+            if($i==0){
+                echo"<td>Modifi</td>";
+                echo"<td>Deleted</td>";
+                
+            }else{
+                echo "<td><a href='index.php?id=".BACK."'><button>Modificar</button></a></td>";
+                echo "<td><a href='index.php?id=".BACK."'><button>Borrar</button></a></td>";
+            }
             echo"</tr>";
+            $i++;
         }
          
         ?>
        </table>
+        <?php
+            echo "<td><a href='index.php?id=".BACK."'><button>Insertar</button></a></td>";
+        ?>
     </body>
 </html>

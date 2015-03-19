@@ -87,7 +87,7 @@
                 $j++;
             }
         }
-
+        echo "<br><a href='index.php?id=".BACK."'><button>volver</button></a>";
 
         //echo $insert;
         ?>

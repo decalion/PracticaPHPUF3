@@ -34,6 +34,8 @@
         
         <?php
         echo "<a href='index.php?id=".CREATEBACKUP."'><button>Create Backup</button></a>";
+        echo "<a href='index.php?id=".DELETEDBACKUP."'><button>Create Backup</button></a>";
+        echo "<a href='index.php?id=".BACK."'><button>volver</button></a>";
        /* echo "effjñaf´ñkfp´kfq";
         $dir=$facade->createGenericDirectori();
         $backup_file = $_SESSION['db']."_" . date("Ymd_His") . '.sql';

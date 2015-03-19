@@ -10,24 +10,43 @@
 
         //Open File and Write date "r+" read+write
         $file->obrirFitxer("r");
-        
-       // $file->mostrarLinies();
-       
-       $sql= $file->getScript();
-       echo $sql;
-       $result=$facade->restoreBackup($sql);
-       
-       
-       if($result){
-           echo" Correcto";
-           
-       }else{
-           echo"incorrecto";
-       }
-       
-       
-       
 
+        // $file->mostrarLinies();
+
+        $sql = $file->getScript();
+        // echo $sql;
+
+
+        $arrayResult = array();
+        // echo"<br><br>";
+        $delimitador = ";";
+        $resultat = strtok($sql, $delimitador);
+        while (is_string($resultat)) {
+            if ($resultat) {
+
+               
+                $resultat.=";";
+                trim($resultat);
+                echo"$resultat<br>";
+                $rst = $facade->restoreBackup($resultat);
+
+                if ($rst) {
+                    array_push($arrayResult, "OK");
+                } else {
+                    array_push($arrayResult, "ERROR");
+                }
+            }
+            $resultat = strtok($delimitador);
+        }
+
+
+        echo"<br><br>";
+
+        //print_r($arrayResult);
+
+
+        echo"<h3> BACKUP DONE! </h3>";
+        echo "<br><a href='index.php?id=".BACK."'><button>volver</button></a>";
         ?>
     </body>
 </html>
