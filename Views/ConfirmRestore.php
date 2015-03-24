@@ -7,11 +7,6 @@
     <body>
         <?php
        
-        
-        if($restore_file==null){
-            
-            echo"<br>No has selecionado ningun fichero";
-        }else{
         echo "Estas seguro de que deseas restaurar esta copia?";
         $dir = $facade->GenericDirectoriData();
         $_SESSION['restore']=$dir[$restore_file];
@@ -19,7 +14,7 @@
         echo "<a href='index.php?id=".RESTORE."'><button>Yes</button></a>";
         echo "<a href='index.php?id=".NORESTORE."'><button>No</button></a>";
         
-        }
+       
         ?>
     </body>
 </html>

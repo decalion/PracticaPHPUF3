@@ -14,19 +14,14 @@ and open the template in the editor.
               
        
        
-        
-        if($del_file==null){
-            
-            echo"<br>No has selecionado ningun fichero";
-        }else{
-             echo "Estas seguro de que deseas eliminar esta copia?";
 
-        $_SESSION['restore']=$del_file;
-        echo "<br><h3>$restore_file</h3>";
-        echo "<a href='index.php?id=".RESTORE."'><button>Yes</button></a>";
-        echo "<a href='index.php?id=".NORESTORE."'><button>No</button></a>";
-        
-        }
+        echo "Estas seguro de que deseas eliminar esta copia?";
+        $dir = $facade->GenericDirectoriData();
+        $_SESSION['del_file']=$dir[$del_file];
+        echo "<br><h3>$dir[$del_file]</h3>";
+        echo "<a href='index.php?id=".DELBACKUP."'><button>Yes</button></a>";
+        echo "<a href='index.php?id=".BACK."'><button>No</button></a>";
+  
         ?>
     </body>
 </html>

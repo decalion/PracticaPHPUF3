@@ -145,6 +145,8 @@ class File {
     //Mètode per eliminar un fitxer
     function eliminarFitxer(){
         unlink($this->fitxer)or die("<p>El fitxer $this->fitxer no s'ha pogut eliminar</p>");
+        
+        echo"La copia $this->fitxer se ha eliminado corretamente";
     }
     
     //Descarregar Fitxer d'un servidor

@@ -76,6 +76,13 @@ if (isset($_GET['id'])) {
         case BACK:
             include './Views/SelectDB.php';
             break;
+        case CONFDELBACKUP:
+            $del_file=$_GET['action'];
+            include './Views/confirmdelBackup.php';
+            break;
+        case DELBACKUP:
+            include './Views/Delbackup.php';
+            break;
         
     }
     
