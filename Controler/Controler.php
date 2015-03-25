@@ -61,6 +61,10 @@ if (isset($_GET['id'])) {
             include './Views/backupstart.php';
             break;
         
+        case CREATETABLE:
+            include './Views/CreateTable.php';
+            break;
+        
         case CREATEBACKUP:
             include './Views/createBackup.php';
             break;
@@ -96,7 +100,42 @@ else if(isset($_POST['id'])){
         case AUTHENTICATION:   
             include './Controler/Authentication.php';
             break;
+        
+        case ADDTABLE:
+                if (isset($_POST['ctable']) && $_POST['ctable'] != null && $_SESSION['db'] != null){
+                if ($facade->checkTable($_POST['ctable'])){
+                    $message = "Error, la tabla ya existe";
+                    include './Views/CreateTable.php';
+                } else {
+                    if (!isset($_POST['fields']) || $_POST['fields'] == null){
+                        $message = "Error, debe introducir el numero de campos";
+                        include './Views/CreateTable.php';
+                    } else {
+                       $_SESSION['ctable']=$_POST['ctable'];
+                       $_SESSION['fields']=$_POST['fields'];
+                        include './Views/addTable.php';
+                    }
+                }
+            } else {
+                $message = "Debe introducir un nombre para la tabla";
+               include './Views/CreateTable.php';
+            }
+            break;
+        case ADDFIELDS:
+            $query = $facade->createTable($_POST);
 
+            if ($query == 0){
+                $message = "La tabla " . $_SESSION['ctable'] ." se ha creado correctamente";
+                include './Views/finalTableCreated.php';
+            } else {
+                $message = "Error en la creación de la tabla: ";
+                include './Views/addTable.php';
+            }
+            break;
+            
+         case BACK:
+            include './Views/SelectDB.php';
+            break;
         
         default: include './Views/start.php'; break;
     }

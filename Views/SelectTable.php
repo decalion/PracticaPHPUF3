@@ -23,6 +23,10 @@
                 }
                 ?>
                 </table>
-        <br><a href='Borrar.php'><button>Create Table</button></a></td>
+        <?php
+            echo"<br><a href='index.php?id=".CREATETABLE."'><button>Create Table</button></a></td>";
+            echo"<br><a href='index.php?id=".BACK."'><button>Volver</button></a></td>";
+                
+        ?>
     </body>
 </html>

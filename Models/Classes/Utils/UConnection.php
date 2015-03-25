@@ -47,5 +47,11 @@ class UConnection {
         return $consulta->fetch_array(MYSQLI_ASSOC);
     }
 
+    
+       function getErrorNum(){
+        return $this->conection->errno;
+    }
+    
+    
 }
 ?>

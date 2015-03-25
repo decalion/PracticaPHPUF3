@@ -74,6 +74,7 @@ class Facade {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
         $db = new GenericDbImplMysql($connection);
         $result = $db->showCreateTables();
+        $db->close();
         return $result;
     }
 
@@ -87,10 +88,34 @@ class Facade {
         //$connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
         $db = new GenericDbImplMysql($connection);
         $result=$db->add($sql);
-        
+        $db->close();
         return $result;
         
-        
-        
     }
-}
+    
+    
+    public function checkTable($table){
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
+        $db = new GenericDbImplMysql($connection);
+        $result = $db->checkTable($table);
+        $db->close();
+        return $result; 
+    }
+    
+    
+    public function createTable($data){
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
+        $db = new GenericDbImplMysql($connection);
+        $result = $db->addTable($data);
+        $db->close();
+        return $result; 
+    }
+    
+    
+    
+ }
+    
+    
+    
+    
+
