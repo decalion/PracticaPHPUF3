@@ -101,6 +101,30 @@ else if(isset($_POST['id'])){
             include './Controler/Authentication.php';
             break;
         
+        case CREATEDATABASE:
+            if (isset($_POST['cdb']) && ($_POST['cdb'] != null)) {
+
+                $db=$_POST['cdb'];
+                echo $db;
+                $result = $facade->createDatabase($db);
+
+                if ($result == 0) {
+                    $message = "Base de datos " . $_POST['cdb'] . " Creada Correctamente";
+                } else {
+
+                    $message = "Error al Crear la Base de datos";
+                }
+            } else {
+
+
+                $message = "Error campo en blanco";
+            }
+
+
+            include './Views/createDatabase.php';
+
+            break;
+
         case ADDTABLE:
                 if (isset($_POST['ctable']) && $_POST['ctable'] != null && $_SESSION['db'] != null){
                 if ($facade->checkTable($_POST['ctable'])){

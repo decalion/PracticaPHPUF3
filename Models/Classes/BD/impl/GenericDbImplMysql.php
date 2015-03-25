@@ -179,11 +179,25 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
             
             $this->conection->query($this->createTable($data));
            if ($this->conection->getErrorNum() == 0){
-                return true;
+                return 0;
             }
-            return false;
+            return 1;
             
             
         }
+        
+        
+        
+        
+        public function createDatabase($db){
+            
+            $query="CREATE DATABASE IF NOT EXISTS $db;";
+            
+             $this->conection->query($query);
+                if ($this->conection->getErrorNum() == 0){
+                    return 0;
+                }
+                return 1;
+            }
 
 }

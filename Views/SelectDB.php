@@ -26,6 +26,9 @@
                 }
                 ?>
             </table>
-        <br><a href='Borrar.php'><button>Create Database</button></a></td>
+       <form action="index.php" method="post">
+           <br> <input type="text" name="cdb" />
+        <button type="submit" name="id" value=104>Create Database</button>
+    </form>
     </body>
 </html>
