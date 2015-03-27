@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Description of Facade
  *
  * @author ismael
  */
 class Facade {
-   public function __construct() {
+
+    public function __construct() {
         
     }
 
@@ -56,7 +58,8 @@ class Facade {
         $db->close();
         return $result;
     }
-        public function genericSelect() {
+
+    public function genericSelect() {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
         $db = new GenericDbImplMysql($connection);
         $result = $db->select();
@@ -78,61 +81,57 @@ class Facade {
         return $result;
     }
 
-    
-    public function restoreBackup($sql,$id){
-        if($id<3){
-            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
-        }else{
-            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],$_SESSION['db']);
+    public function restoreBackup($sql, $id) {
+        if ($id < 3) {
+            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], null);
+        } else {
+            $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
         }
         //$connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],null);
         $db = new GenericDbImplMysql($connection);
-        $result=$db->add($sql);
+        $result = $db->add($sql);
         $db->close();
         return $result;
-        
     }
-    
-    
-    public function checkTable($table){
+
+    public function checkTable($table) {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
         $db = new GenericDbImplMysql($connection);
         $result = $db->checkTable($table);
         $db->close();
-        return $result; 
+        return $result;
     }
-    
-    public function createDatabase($data){
+
+    public function createDatabase($data) {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], null);
         $db = new GenericDbImplMysql($connection);
         $result = $db->createDatabase($data);
         $db->close();
-        return $result;   
+        return $result;
     }
-        public function dropDatabase($data){
+
+    public function dropDatabase($data) {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], null);
         $db = new GenericDbImplMysql($connection);
         $result = $db->dropDB($data);
         $db->close();
-        return $result;   
+        return $result;
     }
-    
-    
-    
-    
-    public function createTable($data){
+
+    public function createTable($data) {
         $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
         $db = new GenericDbImplMysql($connection);
         $result = $db->addTable($data);
         $db->close();
-        return $result; 
+        return $result;
     }
-    
-    
-    
- }
-    
-    
-    
-    
 
+    public function dropTable($tbl) {
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
+        $db = new GenericDbImplMysql($connection);
+        $result = $db->deleteTable($tbl);
+        $db->close();
+        return $result;
+    }
+
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Generic CRUD For ALL Databases
  *
@@ -7,7 +8,7 @@
 class GenericDbImplMysql extends AbstractBD implements IGenericDb {
 
     public function add($sql) {
-        
+
         $this->conection->query($sql);
     }
 
@@ -41,11 +42,9 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         }
         return $result;
     }
-    
-    
-    
-    public function selectTableData($data){
-       $query = $this->conection->query("SELECT * FROM " . $data);
+
+    public function selectTableData($data) {
+        $query = $this->conection->query("SELECT * FROM " . $data);
 
         $descripcion = $this->getDescribeField($data);
         $ncamp = count($descripcion);
@@ -65,11 +64,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
             array_push($result, $temp);
         }
         return $result;
-        
     }
-    
-    
-    
 
     /**
      * Select all database
@@ -146,72 +141,72 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
 
         return $result;
     }
-    
-        public function checkTable($table){
-             $this->conection->query('SELECT * FROM ' . $table);
-            if ($this->conection->getErrorNum() == 0){
-                return true;
-            }
-            return false;
-        }
 
-        
-        
-        private function createTable($data){
-            $query = 'CREATE TABLE ' . $_SESSION['ctable']. '(';
-             for ($i = 0; $i < $_SESSION['fields']; $i++ ){
-                $query .= $data['name' . $i] . " " . $data['type' . $i] . '(' . $data['size' . $i] . ') ';
-                if ($data['pKey'] == $i ){
-                    $query .= 'PRIMARY KEY ';
-                }
-                if (isset($data['notNull'.$i])){
-                    $query .= 'NOT NULL ';
-                }
-                $query.= ', ';
-            }
-            $query = substr($query,0,strlen($query)-2);
-            $query .= ')';
-            return $query;
+    public function checkTable($table) {
+        $this->conection->query('SELECT * FROM ' . $table);
+        if ($this->conection->getErrorNum() == 0) {
+            return true;
         }
-        
-        
-        public function addTable($data){
-            
-            $this->conection->query($this->createTable($data));
-           if ($this->conection->getErrorNum() == 0){
-                return 0;
+        return false;
+    }
+
+    private function createTable($data) {
+        $query = 'CREATE TABLE ' . $_SESSION['ctable'] . '(';
+        for ($i = 0; $i < $_SESSION['fields']; $i++) {
+            $query .= $data['name' . $i] . " " . $data['type' . $i] . '(' . $data['size' . $i] . ') ';
+            if ($data['pKey'] == $i) {
+                $query .= 'PRIMARY KEY ';
             }
-            return 1;
-            
-            
+            if (isset($data['notNull' . $i])) {
+                $query .= 'NOT NULL ';
+            }
+            $query.= ', ';
         }
-        
-        
-        
-        
-        public function createDatabase($db){
-            
-            $query="CREATE DATABASE IF NOT EXISTS $db;";
-            
-             $this->conection->query($query);
-                if ($this->conection->getErrorNum() == 0){
-                    return 0;
-                }
-                return 1;
-            }
-            
-            
-            
-            public function dropDB($db){
-                
-                $query="DROP DATABASE $db";
-                            
-             $this->conection->query($query);
-                if ($this->conection->getErrorNum() == 0){
-                    return 0;
-                }
-                return 1;
-                
-            }
+        $query = substr($query, 0, strlen($query) - 2);
+        $query .= ')';
+        return $query;
+    }
+
+    public function addTable($data) {
+
+        $this->conection->query($this->createTable($data));
+        if ($this->conection->getErrorNum() == 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public function createDatabase($db) {
+
+        $query = "CREATE DATABASE IF NOT EXISTS $db;";
+
+        $this->conection->query($query);
+        if ($this->conection->getErrorNum() == 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public function dropDB($db) {
+
+        $query = "DROP DATABASE $db";
+
+        $this->conection->query($query);
+        if ($this->conection->getErrorNum() == 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public function deleteTable($tbl) {
+
+        $query = "DROP TABLE $tbl";
+
+        $this->conection->query($query);
+        if ($this->conection->getErrorNum() == 0) {
+            return 0;
+        }
+        return 1;
+    }
 
 }

@@ -18,7 +18,7 @@
                     echo"<tr>";
                     echo"<td>$list</td>";
                     echo"<td><a href='index.php?id=".SELECTABLE."&action=$index'><button>Select</button></a></td>";
-                    echo"<td><a href='Borrar.php'><button>Deleted</button></a></td>";
+                    echo"<td><a href='index.php?id=".CONFDELETETABLE."&action=$index'><button>Deleted</button></a></td>";
                     echo "</tr>";
                 }
                 ?>

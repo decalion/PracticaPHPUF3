@@ -75,6 +75,25 @@ if (isset($_GET['id'])) {
             include './Views/SelectCamps.php';
             break;
         
+        
+        case CONFDELETETABLE:
+            $del=$_GET['action'];
+            $tbl = $facade->genericShowTables();
+            $_SESSION['deltable'] = $tbl[$del];
+            include './Views/confDelTable.php';
+            break;
+        
+        case DELETEDTABLE:
+          $result = $facade->dropTable($_SESSION['deltable']);
+            if ($result == 0) {
+                $message = "Tabla " . $_SESSION['deltable'] . " Borrada Correctamente";
+            } else {
+
+                $message = "Error al Borrar la Tabla ".$_SESSION['deltable']."";
+            }
+
+            include './Views/deleteTable.php';
+            break;
         case BACKUPSVIEW:
             $position = $_GET['action'];
             $dblist = $facade->genericShowDatabases();
