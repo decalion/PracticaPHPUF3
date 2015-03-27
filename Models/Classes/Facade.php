@@ -109,6 +109,13 @@ class Facade {
         $db->close();
         return $result;   
     }
+        public function dropDatabase($data){
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], null);
+        $db = new GenericDbImplMysql($connection);
+        $result = $db->dropDB($data);
+        $db->close();
+        return $result;   
+    }
     
     
     

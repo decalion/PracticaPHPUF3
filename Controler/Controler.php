@@ -35,6 +35,27 @@ if (isset($_GET['id'])) {
             
             include './Views/ConfirmRestore.php';
             break;
+        case CONFDROPDATABASE:
+            
+            $dbid=$_GET['action'];
+            $dblist = $facade->genericShowDatabases();
+            $_SESSION['dropdb'] = $dblist[$dbid];
+            
+            include './Views/confDropDB.php';
+            
+            break;
+        
+        case DROPDB:
+            $result = $facade->dropDatabase($_SESSION['dropdb']);
+            if ($result == 0) {
+                $message = "Base de datos " . $_SESSION['dropdb'] . " Borrada Correctamente";
+            } else {
+
+                $message = "Error al Borrar la Base de datos";
+            }
+
+            include './Views/dropDatabase.php';
+            break;
 
         case ERRORSTARTVIEW:
             include './Views/start.php';
@@ -104,15 +125,24 @@ else if(isset($_POST['id'])){
         case CREATEDATABASE:
             if (isset($_POST['cdb']) && ($_POST['cdb'] != null)) {
 
-                $db=$_POST['cdb'];
-                echo $db;
-                $result = $facade->createDatabase($db);
+                $db = $_POST['cdb'];
+                //echo $db;
 
-                if ($result == 0) {
-                    $message = "Base de datos " . $_POST['cdb'] . " Creada Correctamente";
+                $testcon = new mysqli($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $db);
+
+
+                if ($testcon->connect_errno) {
+                    $result = $facade->createDatabase($db);
+
+                    if ($result == 0) {
+                        $message = "Base de datos " . $_POST['cdb'] . " Creada Correctamente";
+                    } else {
+
+                        $message = "Error al Crear la Base de datos";
+                    }
                 } else {
 
-                    $message = "Error al Crear la Base de datos";
+                    $message = "La base de datos que intentas crear ya existe";
                 }
             } else {
 
@@ -120,9 +150,7 @@ else if(isset($_POST['id'])){
                 $message = "Error campo en blanco";
             }
 
-
             include './Views/createDatabase.php';
-
             break;
 
         case ADDTABLE:

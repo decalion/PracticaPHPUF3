@@ -147,7 +147,7 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         return $result;
     }
     
-        function checkTable($table){
+        public function checkTable($table){
              $this->conection->query('SELECT * FROM ' . $table);
             if ($this->conection->getErrorNum() == 0){
                 return true;
@@ -198,6 +198,20 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
                     return 0;
                 }
                 return 1;
+            }
+            
+            
+            
+            public function dropDB($db){
+                
+                $query="DROP DATABASE $db";
+                            
+             $this->conection->query($query);
+                if ($this->conection->getErrorNum() == 0){
+                    return 0;
+                }
+                return 1;
+                
             }
 
 }
