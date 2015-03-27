@@ -134,4 +134,33 @@ class Facade {
         return $result;
     }
 
+    public function insertForm($table){
+        
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'], $_SESSION['db']);
+        $db = new GenericDbImplMysql($connection);
+        $result = $db->getTableDefinition($table);
+        $db->close();
+        return $result;
+        
+        
+    }
+    
+    
+    public function deleteCamps(){
+        
+        $connection = new UConnection($_SESSION['server'], $_SESSION['user'], $_SESSION['pass'],$_SESSION['db']);
+         $db = new GenericDbImplMysql($connection);
+         
+         $nombreTable=$this->genericSelectTableData($_SESSION["table"]);
+    
+         $result = $db->deleteCampsTable($_SESSION["table"],$nombreTable[0][0],$_SESSION["DECAMPO"][0]);
+        return $result;
+        
+    }
+    
+    
+    
+    
+    
+    
 }

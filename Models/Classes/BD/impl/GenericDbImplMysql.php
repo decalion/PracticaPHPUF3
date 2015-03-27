@@ -142,6 +142,26 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         return $result;
     }
 
+    
+    public function getTableDefinition($table){
+        $query = $this->conection->query("DESCRIBE " . $table);
+         $result = array();
+         $tbl=array();
+        while ($rst = $this->conection->result($query)) {
+            $tbl[0] = $rst['Field'];
+            $tbl[1] = $rst['Type'];
+            array_push($result, $tbl);
+        }
+      return $result;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     public function checkTable($table) {
         $this->conection->query('SELECT * FROM ' . $table);
         if ($this->conection->getErrorNum() == 0) {
@@ -209,4 +229,13 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         return 1;
     }
 
+    
+    
+    
+    public function deleteCampsTable($tableCamp,$nomTabla,$contenido){
+      
+
+      $this->conection->query("DELETE FROM $tableCamp WHERE $nomTabla=$contenido;");
+
+  }
 }

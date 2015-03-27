@@ -128,6 +128,33 @@ if (isset($_GET['id'])) {
             include './Views/Delbackup.php';
             break;
         
+        
+        case INSERTFCAMPSFORM:
+            
+            $data=$facade->insertForm($_SESSION['table']);
+            include './Views/insertCampsForm.php';
+            break;
+        
+        
+        case DELETECAMPS:
+
+            $_SESSION["DECAMPO"] = $_GET["action"];
+
+            include './Views/ConfirmDeleteCamps.php';
+            break;
+
+        case DELETENO:
+
+            include './Views/SelectCamps.php';
+
+            break;
+
+        case DELETESI:
+
+            include './Views/DeleteCamps.php';
+
+            break;
+        
     }
     
 }
