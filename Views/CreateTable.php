@@ -19,8 +19,8 @@
         <br/>
         <br/>
         
-        <button type="submit" name="id" value=106>Enviar</button>
-        <button type="submit" name="id" value=45>Volver</button>
+        <button type="submit" name="ids" value=106>Enviar</button>
+        <button type="submit" name="ids" value=45>Volver</button>
     </form>
     </body>
 </html>

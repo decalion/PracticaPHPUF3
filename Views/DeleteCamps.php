@@ -19,7 +19,7 @@ and open the template in the editor.
        
        
        echo" Campo Eliminado Correctamente";
-       echo "<br><a href='index.php?id=".BACK."'><button>No</button></a>";
+       echo "<br><a href='index.php?ids=".BACK."'><button>No</button></a>";
         
         
         

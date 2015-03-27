@@ -48,7 +48,7 @@
 
 
         echo"<h3> BACKUP DONE! </h3>";
-        echo "<br><a href='index.php?id=".BACK."'><button>volver</button></a>";
+        echo "<br><a href='index.php?ids=".BACK."'><button>volver</button></a>";
         ?>
     </body>
 </html>

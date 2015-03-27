@@ -19,8 +19,8 @@ and open the template in the editor.
         $dir = $facade->GenericDirectoriData();
         $_SESSION['del_file']=$dir[$del_file];
         echo "<br><h3>$dir[$del_file]</h3>";
-        echo "<a href='index.php?id=".DELBACKUP."'><button>Yes</button></a>";
-        echo "<a href='index.php?id=".BACK."'><button>No</button></a>";
+        echo "<a href='index.php?ids=".DELBACKUP."'><button>Yes</button></a>";
+        echo "<a href='index.php?ids=".BACK."'><button>No</button></a>";
   
         ?>
     </body>

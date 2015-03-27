@@ -31,7 +31,7 @@
                 }
                 
                 ?>
-            </select><input type="text"  name="id"  value="111" hidden /><br>
+            </select><input type="text"  name="ids"  value="111" hidden /><br>
             <input type="submit" value="Login" />
         </form>
     </body>

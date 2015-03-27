@@ -27,8 +27,8 @@ and open the template in the editor.
                 echo"<td>Deleted</td>";
                 
             }else{
-                echo "<td><a href='index.php?id=".BACK."'><button>Modificar</button></a></td>";
-                echo "<td><a href='index.php?id=".DELETECAMPS."&action=$i'><button>Borrar</button></a></td>";
+                echo "<td><a href='index.php?ids=".BACK."'><button>Modificar</button></a></td>";
+                echo "<td><a href='index.php?ids=".DELETECAMPS."&action=$i'><button>Borrar</button></a></td>";
             }
             echo"</tr>";
             $i++;
@@ -37,8 +37,8 @@ and open the template in the editor.
         ?>
        </table>
         <?php
-            echo "<td><a href='index.php?id=".INSERTFCAMPSFORM."'><button>Insertar</button></a></td>";
-            echo "<td><a href='index.php?id=".BACK."'><button>Volver</button></a></td>";
+            echo "<td><a href='index.php?ids=".INSERTFCAMPSFORM."'><button>Insertar</button></a></td>";
+            echo "<td><a href='index.php?ids=".BACK."'><button>Volver</button></a></td>";
         ?>
     </body>
 </html>

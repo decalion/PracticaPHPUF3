@@ -9,7 +9,7 @@ if($_POST['user']==NULL){
    
     
     $_SESSION['errors']=ERRORUSERNULL;
-    $_GET['id']=ERRORSTARTVIEW;
+    $_GET['ids']=ERRORSTARTVIEW;
    // header("Location:./index.php"); 
     include './index.php';
     
@@ -69,7 +69,7 @@ if($_POST['user']==NULL){
         
        
        $_SESSION['errors']=$error;
-       $_GET['id']=ERRORSTARTVIEW;
+       $_GET['ids']=ERRORSTARTVIEW;
        include './index.php';
        
       // header("Location:./index.php"); 

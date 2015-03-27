@@ -11,13 +11,8 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo "Estas Seguro de que deseas Borrar la base de datos ".$_SESSION['dropdb']." ?<br>";
         
-        echo "<a href='index.php?ids=".DROPDB."'><button>Yes</button></a>";
-        echo "<a href='index.php?ids=".BACK."'><button>No</button></a>";
-        
-        
-        
+        var_dump($data);
         ?>
     </body>
 </html>

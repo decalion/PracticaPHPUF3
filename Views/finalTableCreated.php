@@ -14,7 +14,7 @@ and open the template in the editor.
         if (isset($message) && $message!= null) echo "<p>" . $message . "</p>";
     ?>
     <form action="index.php" method="post">
-        <button type="submit" name="id" value=45>Volver</button>
+        <button type="submit" name="ids" value=45>Volver</button>
     </form>
     </body>
 </html>

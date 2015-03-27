@@ -10,7 +10,7 @@
             $file->eliminarFitxer();
             
             
-             echo "<br><a href='index.php?id=".BACK."'><button>Volver</button></a>";
+             echo "<br><a href='index.php?ids=".BACK."'><button>Volver</button></a>";
         ?>
     </body>
 </html>

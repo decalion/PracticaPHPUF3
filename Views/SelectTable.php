@@ -17,15 +17,15 @@
                 foreach ($tblist as $index => $list){
                     echo"<tr>";
                     echo"<td>$list</td>";
-                    echo"<td><a href='index.php?id=".SELECTABLE."&action=$index'><button>Select</button></a></td>";
-                    echo"<td><a href='index.php?id=".CONFDELETETABLE."&action=$index'><button>Deleted</button></a></td>";
+                    echo"<td><a href='index.php?ids=".SELECTABLE."&action=$index'><button>Select</button></a></td>";
+                    echo"<td><a href='index.php?ids=".CONFDELETETABLE."&action=$index'><button>Deleted</button></a></td>";
                     echo "</tr>";
                 }
                 ?>
                 </table>
         <?php
-            echo"<br><a href='index.php?id=".CREATETABLE."'><button>Create Table</button></a></td>";
-            echo"<br><a href='index.php?id=".BACK."'><button>Volver</button></a></td>";
+            echo"<br><a href='index.php?ids=".CREATETABLE."'><button>Create Table</button></a></td>";
+            echo"<br><a href='index.php?ids=".BACK."'><button>Volver</button></a></td>";
                 
         ?>
     </body>

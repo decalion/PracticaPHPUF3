@@ -15,8 +15,8 @@ and open the template in the editor.
 
         echo "<br>";
      
-        echo "<td><a href='index.php?id=".DELETESI."'><button>Si</button></a></td>";
-        echo "<td><a href='index.php?id=".DELETENO."'><button>No</button></a></td>";
+        echo "<td><a href='index.php?ids=".DELETESI."'><button>Si</button></a></td>";
+        echo "<td><a href='index.php?ids=".DELETENO."'><button>No</button></a></td>";
         ?>
     </body>
 </html>

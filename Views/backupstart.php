@@ -26,8 +26,8 @@
                     echo"<tr>";
                     
                     echo"<td>$data</td>";
-                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Restaurar\" onClick=location.href=\"./index.php?id=".CONFRESTOREBP."&action=$index\"></td>";
-                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Deleted\" onClick=location.href=\"./index.php?id=".CONFDELBACKUP."&action=$index\"></td>";
+                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Restaurar\" onClick=location.href=\"./index.php?ids=".CONFRESTOREBP."&action=$index\"></td>";
+                    echo"<td><input type=\"button\" name=\"acceptar\" value=\"Deleted\" onClick=location.href=\"./index.php?ids=".CONFDELBACKUP."&action=$index\"></td>";
                     //echo"<td> <a href='index.php?id=".BACK."'><button>volver</button></a> </td>";
                    // echo"<td> <a href='index.php?id=".CONFDELBACKUP."&action='$index'><button>Deleted Backup</button></a> </td>";
             
@@ -44,8 +44,8 @@
         
         
         <?php
-        echo "<a href='index.php?id=".CREATEBACKUP."'><button>Create Backup</button></a>";
-        echo "<a href='index.php?id=".BACK."'><button>volver</button></a>";
+        echo "<a href='index.php?ids=".CREATEBACKUP."'><button>Create Backup</button></a>";
+        echo "<a href='index.php?ids=".BACK."'><button>volver</button></a>";
        /* echo "effjñaf´ñkfp´kfq";
         $dir=$facade->createGenericDirectori();
         $backup_file = $_SESSION['db']."_" . date("Ymd_His") . '.sql';

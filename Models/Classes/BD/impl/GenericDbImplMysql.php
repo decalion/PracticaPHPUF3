@@ -186,6 +186,21 @@ class GenericDbImplMysql extends AbstractBD implements IGenericDb {
         $query .= ')';
         return $query;
     }
+    
+     public function insertTable($sentencia)
+     {
+         
+         $this->conection->query($sentencia);
+         if($this->conection->getError())
+         {
+             return true;
+         }
+         return false;
+         
+        
+         
+        
+     }
 
     public function addTable($data) {
 

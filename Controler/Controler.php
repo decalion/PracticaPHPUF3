@@ -23,9 +23,9 @@ if(!isset($_SESSION['test'])){
 $facade=new Facade();
 
 
-if (isset($_GET['id'])) {
+if (isset($_GET['ids'])) {
 
-    $getid = $_GET['id'];
+    $getid = $_GET['ids'];
 
     switch ($getid) {
         
@@ -155,12 +155,23 @@ if (isset($_GET['id'])) {
 
             break;
         
+        case INSERT:
+            $data=$facade->insertForm($_SESSION['table']);
+            include './Views/insertCamps.php';
+            
+            
+            
+            break;
+        default :
+            break;
+        
+        
     }
     
 }
-else if(isset($_POST['id'])){
+else if(isset($_POST['ids'])){
     
-    $id=$_POST['id'];
+    $id=$_POST['ids'];
     
     switch($id){
         

@@ -5,8 +5,8 @@ const TITLE="EBD";
 
 //DataBase Config
 const HOST="localhost";
-const USER="ismael";
-const PASS="ismael";
+const USER="root";
+const PASS="daw";
 const DATABASE="genesis";
 
 
@@ -37,6 +37,7 @@ const CREATEBACKUP=402;
 const DELETECAMPS=456;
 const RESTORE=654;
 const NORESTORE=999;
+const INSERTCAMPS=114;
 
 
 //ERRORS

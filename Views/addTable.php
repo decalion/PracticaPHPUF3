@@ -42,8 +42,8 @@ and open the template in the editor.
             echo "<br/><br/>";
         }
     ?>
-        <button type="submit" name="id" value=107>Enviar</button>
-        <button type="submit" name="id" value=45>Volver</button>
+        <button type="submit" name="ids" value=107>Enviar</button>
+        <button type="submit" name="ids" value=45>Volver</button>
     </form>
     </body>
 </html>
